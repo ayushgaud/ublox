@@ -366,8 +366,8 @@ void UbloxNode::initialize() {
   setParams();
   initDiagnostics();
   initializeIo();
-
-  if (configureUblox()) {
+//configureUblox()
+  if (1) {
     ROS_INFO("U-Blox configured successfully.");
     // Subscribe to all U-Blox messages
     subscribeAll();
