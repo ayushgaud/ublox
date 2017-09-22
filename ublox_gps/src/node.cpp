@@ -519,10 +519,6 @@ void UbloxNode::initialize() {
   // Params must be set before initializing IO
   getRosParams();
   initializeIo();
-<<<<<<< HEAD
-//configureUblox()
-  if (1) {
-=======
   // Must process Mon VER before setting firmware/hardware params
   processMonVer();
   if(protocol_version_ <= 14) {
@@ -536,7 +532,6 @@ void UbloxNode::initialize() {
   initializeRosDiagnostics();    
 
   if (configureUblox()) {
->>>>>>> 262432525096b7053b724cb37d9041d11ce1236c
     ROS_INFO("U-Blox configured successfully.");
     // Subscribe to all U-Blox messages
     subscribe();
