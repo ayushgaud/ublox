@@ -764,16 +764,16 @@ class UbloxFirmware7Plus : public UbloxFirmware {
     sensor_msgs::NavSatFix fix;
     fix.header.frame_id = frame_id;
     // set the timestamp
-    uint8_t valid_time = m.VALID_DATE | m.VALID_TIME | m.VALID_FULLY_RESOLVED;
-    if (m.valid & valid_time == valid_time 
-        && m.flags2 & m.FLAGS2_CONFIRMED_AVAILABLE) {
-      // Use NavPVT timestamp since it is valid
-      fix.header.stamp.sec = toUtcSeconds(m);
-      fix.header.stamp.nsec = m.nano;
-    } else {
+//    uint8_t valid_time = m.VALID_DATE | m.VALID_TIME | m.VALID_FULLY_RESOLVED;
+//   if (m.valid & valid_time == valid_time 
+//        && m.flags2 & m.FLAGS2_CONFIRMED_AVAILABLE) {
+//      // Use NavPVT timestamp since it is valid
+//      fix.header.stamp.sec = toUtcSeconds(m);
+//      fix.header.stamp.nsec = m.nano;
+//    } else {
       // Use ROS time since NavPVT timestamp is not valid
       fix.header.stamp = ros::Time::now();
-    }
+//    }
     // Set the LLA
     fix.latitude = m.lat * 1e-7; // to deg
     fix.longitude = m.lon * 1e-7; // to deg
